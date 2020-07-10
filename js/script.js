@@ -4,7 +4,7 @@ window.addEventListener("DOMContentLoaded", () => {
   let tab = document.querySelectorAll(".info-header-tab"),
     info = document.querySelector(".info-header"),
     tabContent = document.querySelectorAll(".info-tabcontent"),
-    deadline = "2020-07-04";
+    deadline = "2020-07-15";
 
   // Скрываем контент
   function hideTabContent(a) {
@@ -81,4 +81,22 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   setClock('timer', deadline);
+
+  // Modal 
+  let more = document.querySelector('.more'),
+      overlay = document.querySelector('.overlay'),
+      close = document.querySelector('.popup-close');
+
+
+  more.addEventListener('click', function() {
+    overlay.style.display = 'block';
+    this.classList.add('more-splash');
+    document.body.style.overflow = 'hidden';
+  });
+
+  close.addEventListener('click', function() {
+    overlay.style.display = 'none';
+    more.classList.remove('more-splash');
+    document.body.style.overflow = '';
+  });
 });
